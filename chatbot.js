@@ -277,7 +277,7 @@
   // ── STATE ───────────────────────────────────────────────────────────────
   let isOpen = false;
   let conversationHistory = [];
-  let leadData = { name: null, phone: null, service: null, location: null, photos: 'no' };
+  let leadData = { name: null, phone: null, service: null, location: null };
   let leadSent = false;
 
   const SYSTEM_PROMPT = `You are a friendly, helpful chat assistant for ${BUSINESS_NAME}, a junk removal and demolition company in Houston, TX. Your job is to help potential customers get a free quote.
@@ -287,9 +287,8 @@ Services offered: Junk Removal, Garage Cleanout, Demolition, Hauling, Dumpster R
 Your goal is to naturally collect in this order:
 1. What service they need
 2. Their location (city or neighborhood in the Houston area)
-3. Ask if they have photos of the job - say it helps give a more accurate quote. If they say no or cannot send, say no problem and move on.
-4. Their first name
-5. Their phone number
+3. Their first name
+4. Their phone number
 
 Rules:
 - Be conversational and friendly, not robotic
@@ -298,11 +297,10 @@ Rules:
 - If they ask about pricing, say pricing depends on the job size and the team will give an exact quote when they call
 - Phone number: ${PHONE}
 - Do NOT make up prices or guarantees
-- For photos: if they say yes, tell them to text the photos directly to ${PHONE} since the chat does not support image uploads
 - If they seem ready to book, push them to call/text ${PHONE} directly for fastest service
 
 When you have collected name, phone, service, AND location, include this exact JSON at the END of your response on its own line:
-LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location":"[location]","photos":"[yes or no]"}`;
+LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location":"[location]"}`;
 
   // ── FUNCTIONS ────────────────────────────────────────────────────────────
   function messagesEl() { return document.getElementById('oj-messages'); }
@@ -370,7 +368,7 @@ LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location
       const fullText = data.content?.[0]?.text || "Sorry, I'm having trouble connecting. Please call us at " + PHONE;
 
       // Check for lead capture
-      const leadMatch = fullText.match(/LEAD_CAPTURED:(\{.*?\})/);
+      const leadMatch = fullText.match(/LEAD_CAPTURED:(\{.*?\})/s);
       let displayText = fullText.replace(/\nLEAD_CAPTURED:\{.*?\}/, '').trim();
 
       removeTyping();
@@ -404,7 +402,6 @@ LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location
         'phone': lead.phone || '',
         'service': lead.service || '',
         'location': lead.location || '',
-        'photos': lead.photos || 'no',
         'source': 'chatbot'
       }).toString()
     }).catch(() => {});
@@ -420,7 +417,7 @@ LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location
           phone: lead.phone || '',
           service: lead.service || '',
           location: lead.location || 'Not provided',
-          photos: lead.photos === 'yes' ? ['Customer will text photos to ' + PHONE] : []
+          photos: []
         }
       })
     }).catch(() => {});
