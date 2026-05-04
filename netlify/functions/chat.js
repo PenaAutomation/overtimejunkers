@@ -4,12 +4,52 @@ exports.handler = async function(event) {
   }
 
   const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-  if (!ANTHROPIC_API_KEY) {
-    return { statusCode: 500, body: JSON.stringify({ error: 'API key not configured' }) };
-  }
+  const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
+  const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
+  const TWILIO_FROM = process.env.TWILIO_FROM;
+  const OWNER_PHONE = process.env.OWNER_PHONE;
 
   try {
-    const { messages, system } = JSON.parse(event.body);
+    const body = JSON.parse(event.body);
+
+    // Handle SMS notification
+    if (body.action === 'notify') {
+      const { name, phone, service, location, photos } = body.lead;
+
+      const photoText = photos && photos.length > 0
+        ? `Photos: ${photos.join(', ')}`
+        : 'Photos: None provided';
+
+      const message =
+        `🚛 NEW LEAD - Overtime Junkers\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Service: ${service}\n` +
+        `Location: ${location || 'Not provided'}\n` +
+        `${photoText}\n` +
+        `Reply fast to close the job!`;
+
+      const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`;
+      const credentials = Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString('base64');
+
+      await fetch(twilioUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Basic ${credentials}`,
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          From: TWILIO_FROM,
+          To: OWNER_PHONE,
+          Body: message
+        }).toString()
+      });
+
+      return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+    }
+
+    // Handle AI chat
+    const { messages, system } = body;
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
