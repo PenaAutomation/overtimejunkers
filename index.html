@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overtime Junkers LLC — Junk Removal & Demolition | Houston, TX</title>
+  <meta name="description" content="Houston's #1 junk removal and demolition crew. Garage cleanouts, hauling, dumpster rental, siding, remodeling & flooring. Call or text 713-906-2389." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" href="brand_assets/logo.png" type="image/jpeg" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --red: #D01B00;
+      --red-dark: #A01400;
+      --red-bright: #FF2200;
+      --orange: #F47B20;
+      --black: #0A0A0A;
+      --black-2: #141414;
+      --black-3: #1E1E1E;
+      --white: #F9F6F2;
+      --gray: #888884;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(208,27,0,0.25);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--orange); }
+
+    .btn-nav {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-nav:hover { background: var(--red-bright); transform: translateY(-1px); }
+    .btn-nav:active { transform: translateY(0); }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 26px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--black-2);
+      border-bottom: 2px solid var(--red);
+      z-index: 99;
+      padding: 1.5rem 1.5rem 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--black);
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('brand_assets/img_1482.jpeg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.18;
+      filter: grayscale(60%);
+    }
+
+    /* diagonal red slash */
+    .hero-slash {
+      position: absolute;
+      top: 0; right: -10%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(208,27,0,0.08) 40%);
+      pointer-events: none;
+    }
+
+    /* SVG noise texture overlay */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    .hero-red-bar {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: linear-gradient(to bottom, var(--red), var(--orange));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 1.5rem 5rem;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(208,27,0,0.15);
+      border: 1px solid rgba(208,27,0,0.4);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge span.dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin: 0 0 1.25rem;
+    }
+
+    .hero-title .line-red { color: var(--red); }
+    .hero-title .line-white { color: var(--white); }
+    .hero-title .line-outline {
+      -webkit-text-stroke: 2px var(--white);
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(249,246,242,0.65);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      padding: 0.9rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(208,27,0,0.4), 0 1px 4px rgba(0,0,0,0.6);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,34,0,0.5), 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: transparent;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      border: 2px solid rgba(249,246,242,0.3);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary:active { transform: translateY(0); }
+
+    /* phone icon SVG inline */
+    .icon { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -0.15em; fill: currentColor; }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--red);
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .trust-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .trust-sep { color: rgba(255,255,255,0.3); font-size: 1.2rem; }
+
+    /* ─── SECTION SHARED ─── */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin: 0 0 1rem;
+    }
+
+    .section-title .accent { color: var(--red); }
+
+    .section-body {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(249,246,242,0.6);
+      max-width: 560px;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-wrap { background: var(--black-2); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--black-2);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.2s, transform 0.2s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .service-card:hover { background: var(--black-3); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      background: rgba(208,27,0,0.12);
+      border: 1px solid rgba(208,27,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: rgba(249,246,242,0.5);
+    }
+
+    /* ─── STATS ─── */
+    .stats-wrap {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+    }
+
+    .stat-item {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--red);
+    }
+
+    .stat-suffix {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--orange);
+    }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(249,246,242,0.45);
+      margin-top: 0.4rem;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 8px;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 5; }
+    .gallery-item:nth-child(3) { grid-column: span 5; }
+    .gallery-item:nth-child(4) { grid-column: span 4; }
+    .gallery-item:nth-child(5) { grid-column: span 4; }
+    .gallery-item:nth-child(6) { grid-column: span 4; }
+    .gallery-item:nth-child(7) { grid-column: span 12; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+      min-height: 220px;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 45%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .gallery-item .color-layer {
+      position: absolute;
+      inset: 0;
+      background: rgba(208,27,0,0.08);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 1.1rem;
+      right: 1.1rem;
+      bottom: 1rem;
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .gallery-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .gallery-tag.alt { background: rgba(10,10,10,0.7); border: 1px solid rgba(249,246,242,0.2); }
+
+    .gallery-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .gallery-item:nth-child(1) .gallery-title { font-size: 1.2rem; }
+
+    /* ─── AREA ─── */
+    .area-wrap {
+      background: var(--black-2);
+    }
+
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 2rem;
+    }
+
+    .area-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      background: rgba(249,246,242,0.06);
+      border: 1px solid rgba(249,246,242,0.1);
+      color: rgba(249,246,242,0.7);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .area-tag.main {
+      background: rgba(208,27,0,0.15);
+      border-color: rgba(208,27,0,0.4);
+      color: var(--orange);
+    }
+
+    .area-tag:hover {
+      background: rgba(208,27,0,0.1);
+      border-color: rgba(208,27,0,0.3);
+      color: var(--white);
+    }
+
+    /* ─── BOOKING ─── */
+    .booking-wrap {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-bg-shape {
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(208,27,0,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .booking-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .cta-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      background: var(--black-2);
+      border: 1px solid rgba(255,255,255,0.07);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-card:hover {
+      border-color: var(--red);
+      transform: translateX(4px);
+      box-shadow: -4px 0 0 var(--red), 0 4px 24px rgba(208,27,0,0.15);
+    }
+
+    .cta-card:active { transform: translateX(2px); }
+
+    .cta-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(208,27,0,0.12);
+      border: 1px solid rgba(208,27,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cta-card-text { flex: 1; }
+
+    .cta-card-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .cta-card-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+
+    .cta-card-sub {
+      font-size: 0.85rem;
+      color: rgba(249,246,242,0.45);
+      margin-top: 0.1rem;
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--black-2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 2rem;
+    }
+
+    .form-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(249,246,242,0.5);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 5px;
+      padding: 0.7rem 1rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group select option { background: var(--black-3); color: var(--white); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+      background: rgba(208,27,0,0.05);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(249,246,242,0.25); }
+
+    .form-group textarea { min-height: 90px; resize: vertical; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 24px rgba(208,27,0,0.35);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,34,0,0.45);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(208,27,0,0.2);
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo img { height: 64px; margin-bottom: 1rem; mix-blend-mode: screen; }
+
+    .footer-tagline {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(249,246,242,0.4);
+      max-width: 280px;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-contact a {
+      display: block;
+      color: rgba(249,246,242,0.65);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--orange); }
+
+    .footer-col-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links { list-style: none; margin: 0; padding: 0; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a {
+      color: rgba(249,246,242,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: rgba(249,246,242,0.3);
+    }
+
+    .footer-lic {
+      font-size: 0.85rem;
+      color: rgba(249,246,242,0.3);
+    }
+
+    /* ─── FLOATING CTA (mobile) ─── */
+    .floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      gap: 0.75rem;
+    }
+
+    .floating-cta a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .floating-cta a:hover { transform: translateY(-2px); }
+    .floating-cta a:active { transform: translateY(0); }
+
+    .float-call {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .float-text {
+      background: var(--black-2);
+      border: 2px solid rgba(249,246,242,0.15);
+      color: var(--white);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .btn-nav.desktop-only { display: none; }
+
+      .booking-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-inner > div:first-child { grid-column: span 2; }
+
+      .gallery-item:nth-child(1) { grid-column: span 12; grid-row: auto; }
+      .gallery-item:nth-child(2) { grid-column: span 6; }
+      .gallery-item:nth-child(3) { grid-column: span 6; }
+      .gallery-item:nth-child(4) { grid-column: span 6; }
+      .gallery-item:nth-child(5) { grid-column: span 6; }
+      .gallery-item:nth-child(6) { grid-column: span 12; }
+      .gallery-item:nth-child(7) { grid-column: span 12; }
+
+      .floating-cta { display: flex; }
+      body { padding-bottom: 5rem; }
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .hero-content { padding: 7rem 1.25rem 4rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .stat-item:nth-child(even) { border-right: none; }
+      .stat-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 2rem 1rem; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-inner > div:first-child { grid-column: span 1; }
+    }
+
+    @media (max-width: 440px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="brand_assets/logo.png" alt="Overtime Junkers LLC" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#area">Service Area</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="tel:7139062389" class="btn-nav desktop-only">
+      📞 713-906-2389
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#work" onclick="closeMobileMenu()">Our Work</a>
+  <a href="#area" onclick="closeMobileMenu()">Service Area</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="tel:7139062389" class="btn-primary" style="margin-top:0.5rem; justify-content:center;">📞 Call 713-906-2389</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-img"></div>
+  <div class="hero-slash"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-red-bar"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge fade-up">
+      <span class="dot"></span>
+      Now Serving Houston & All Surrounding Areas
+    </div>
+
+    <h1 class="hero-title fade-up stagger-1">
+      <span class="line-red">We Haul</span><br />
+      <span class="line-white">It. Demo</span><br />
+      <span class="line-outline">It. Done.</span>
+    </h1>
+
+    <p class="hero-sub fade-up stagger-2">
+      Overtime Junkers LLC — Houston's hardest-working junk removal and demolition crew. From garage cleanouts to full remodels, we get it done fast, safe, and right.
+    </p>
+
+    <div class="hero-ctas fade-up stagger-3">
+      <a href="tel:7139062389" class="btn-primary">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Call Now
+      </a>
+      <a href="sms:7139062389" class="btn-secondary">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        Send a Text
+      </a>
+    </div>
+
+    <!-- Quick proof points -->
+    <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:3rem;" class="fade-up stagger-4">
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <span style="color:var(--orange); font-size:1.1rem;">✓</span>
+        <span style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase; color:rgba(249,246,242,0.55);">Free Estimates</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <span style="color:var(--orange); font-size:1.1rem;">✓</span>
+        <span style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase; color:rgba(249,246,242,0.55);">Same-Day Service</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <span style="color:var(--orange); font-size:1.1rem;">✓</span>
+        <span style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase; color:rgba(249,246,242,0.55);">Licensed & Insured</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRUST BAR ═══════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">🚛 Junk Removal</div>
+    <div class="trust-sep">|</div>
+    <div class="trust-item">🏗️ Demolition</div>
+    <div class="trust-sep">|</div>
+    <div class="trust-item">🗑️ Dumpster Rental</div>
+    <div class="trust-sep">|</div>
+    <div class="trust-item">🔨 Remodeling</div>
+    <div class="trust-sep">|</div>
+    <div class="trust-item">📍 Houston TX</div>
+  </div>
+</div>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<div class="services-wrap" id="services">
+  <div class="section">
+    <div class="section-label fade-up">What We Do</div>
+    <h2 class="section-title fade-up">
+      Every Job. <span class="accent">On Time.</span>
+    </h2>
+    <p class="section-body fade-up">
+      From a single item to a full-scale commercial cleanout — we've got the crew, the trucks, and the muscle to handle it all across the Houston metro.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🚛</div>
+        <div class="service-name">Junk Removal</div>
+        <div class="service-desc">Old furniture, appliances, debris — we load it, haul it, and dispose of it responsibly.</div>
+      </div>
+      <div class="service-card fade-up stagger-1">
+        <div class="service-icon">🏠</div>
+        <div class="service-name">Garage Cleanouts</div>
+        <div class="service-desc">Reclaim your space. We clear out decades of clutter fast and without the hassle.</div>
+      </div>
+      <div class="service-card fade-up stagger-2">
+        <div class="service-icon">🏗️</div>
+        <div class="service-name">Demolition</div>
+        <div class="service-desc">Interior tear-outs, shed demolition, structural removal — done safely and efficiently.</div>
+      </div>
+      <div class="service-card fade-up stagger-3">
+        <div class="service-icon">🚚</div>
+        <div class="service-name">Hauling</div>
+        <div class="service-desc">Heavy loads, construction materials, yard waste — we haul anything anywhere.</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🗑️</div>
+        <div class="service-name">Dumpster Rental</div>
+        <div class="service-desc">Flexible rental periods with roll-off dumpsters sized for any project scope.</div>
+      </div>
+      <div class="service-card fade-up stagger-1">
+        <div class="service-icon">🪟</div>
+        <div class="service-name">Siding</div>
+        <div class="service-desc">Removal and replacement of exterior siding — protect your home's curb appeal.</div>
+      </div>
+      <div class="service-card fade-up stagger-2">
+        <div class="service-icon">🔨</div>
+        <div class="service-name">Remodeling</div>
+        <div class="service-desc">Full-scope remodels handled by experienced tradespeople who take pride in their work.</div>
+      </div>
+      <div class="service-card fade-up stagger-3">
+        <div class="service-icon">🧱</div>
+        <div class="service-name">Flooring</div>
+        <div class="service-desc">Old floor tear-out and new floor installation — hardwood, tile, vinyl, and more.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STATS ═══════════ -->
+<div class="stats-wrap">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <div><span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div class="stat-item fade-up stagger-1">
+        <div><span class="stat-number" data-target="24">0</span><span class="stat-suffix">hr</span></div>
+        <div class="stat-label">Same-Day Response</div>
+      </div>
+      <div class="stat-item fade-up stagger-2">
+        <div><span class="stat-number" data-target="20">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Cities Served</div>
+      </div>
+      <div class="stat-item fade-up stagger-3">
+        <div><span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span></div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<div id="work" style="background: var(--black-2);">
+  <div class="section">
+    <div class="section-label fade-up">Proof of Work</div>
+    <h2 class="section-title fade-up">
+      Real Jobs. <span class="accent">Real Results.</span>
+    </h2>
+    <p class="section-body fade-up">
+      We show up, we work hard, and we leave the site clean. See the kind of jobs we handle every day across the Houston area.
+    </p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item fade-up">
+        <img src="brand_assets/img_8231.jpeg" alt="Finished tile shower remodel — gray marble look" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag">Remodel</span>
+          <span class="gallery-title">Custom Tile Shower Build-Out</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up stagger-1">
+        <img src="brand_assets/img_8181.jpeg" alt="Bathroom torn down to studs for full demolition" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag">Demolition</span>
+          <span class="gallery-title">Full Bathroom Tear-Out</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up stagger-2">
+        <img src="brand_assets/img_8221.jpeg" alt="Spacious cleaned-out home interior with stairs and kitchen" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag">Cleanout</span>
+          <span class="gallery-title">Whole-Home Cleanout, Move-In Ready</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="brand_assets/img_1482.jpeg" alt="Construction site cleanup" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag alt">Site Cleanup</span>
+          <span class="gallery-title">Job-Site Debris Haul</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up stagger-1">
+        <img src="brand_assets/img_1480.jpeg" alt="Hauling and junk removal" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag alt">Hauling</span>
+          <span class="gallery-title">Truck Loaded &amp; Out the Door</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up stagger-2">
+        <img src="brand_assets/img_1483.jpeg" alt="Demolition debris removal" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag alt">Demo Debris</span>
+          <span class="gallery-title">Tear-Out Hauled Same Day</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up stagger-3">
+        <img src="brand_assets/img_1484.jpeg" alt="Flooring removal and hauling" loading="lazy" />
+        <div class="overlay"></div>
+        <div class="color-layer"></div>
+        <div class="gallery-caption">
+          <span class="gallery-tag alt">Flooring</span>
+          <span class="gallery-title">Old Floor Out, New Floor In</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SERVICE AREA ═══════════ -->
+<div class="area-wrap" id="area">
+  <div class="section">
+    <div class="section-label fade-up">Where We Work</div>
+    <h2 class="section-title fade-up">
+      Serving <span class="accent">Houston</span> &amp; Beyond
+    </h2>
+    <p class="section-body fade-up">
+      Based in Houston, TX — we cover the entire metro and all surrounding areas. If you're not sure we cover your city, just call or text us.
+    </p>
+
+    <div class="area-tags">
+      <span class="area-tag main fade-up">📍 Houston (All Areas)</span>
+      <span class="area-tag fade-up stagger-1">Sugar Land</span>
+      <span class="area-tag fade-up stagger-2">Pearland</span>
+      <span class="area-tag fade-up stagger-1">Katy</span>
+      <span class="area-tag fade-up stagger-2">The Woodlands</span>
+      <span class="area-tag fade-up stagger-3">Spring</span>
+      <span class="area-tag fade-up stagger-1">Humble</span>
+      <span class="area-tag fade-up stagger-2">Baytown</span>
+      <span class="area-tag fade-up stagger-3">Pasadena</span>
+      <span class="area-tag fade-up stagger-1">League City</span>
+      <span class="area-tag fade-up stagger-2">Friendswood</span>
+      <span class="area-tag fade-up stagger-3">Conroe</span>
+      <span class="area-tag fade-up stagger-1">Missouri City</span>
+      <span class="area-tag fade-up stagger-2">Richmond</span>
+      <span class="area-tag fade-up stagger-3">Rosenberg</span>
+      <span class="area-tag fade-up stagger-1">Stafford</span>
+      <span class="area-tag fade-up stagger-2">Cypress</span>
+      <span class="area-tag fade-up stagger-3">Tomball</span>
+      <span class="area-tag fade-up stagger-1">Galveston</span>
+      <span class="area-tag fade-up stagger-2">Webster</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ BOOKING / CONTACT ═══════════ -->
+<div class="booking-wrap" id="contact">
+  <div class="booking-bg-shape"></div>
+  <div class="section" style="max-width:1200px;">
+    <div class="section-label fade-up">Book a Job</div>
+    <h2 class="section-title fade-up">
+      Ready to <span class="accent">Get Started?</span>
+    </h2>
+
+    <div class="booking-grid" style="margin-top:3rem;">
+
+      <!-- Left: CTAs -->
+      <div class="fade-up">
+        <p style="font-size:1.05rem; line-height:1.7; color:rgba(249,246,242,0.6); margin-bottom:0.5rem;">
+          The fastest way to get a quote is to call or text us directly. We typically respond within minutes and can schedule same-day or next-day service.
+        </p>
+
+        <div class="booking-ctas">
+          <a href="tel:7139062389" class="cta-card">
+            <div class="cta-icon">📞</div>
+            <div class="cta-card-text">
+              <div class="cta-card-label">Call Us Directly</div>
+              <div class="cta-card-value">713-906-2389</div>
+              <div class="cta-card-sub">Mon–Sat · 7am–7pm</div>
+            </div>
+            <svg style="width:20px;height:20px;fill:rgba(249,246,242,0.25);" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+
+          <a href="sms:7139062389" class="cta-card">
+            <div class="cta-icon">💬</div>
+            <div class="cta-card-text">
+              <div class="cta-card-label">Send a Text</div>
+              <div class="cta-card-value">713-906-2389</div>
+              <div class="cta-card-sub">Text us anytime — we reply fast</div>
+            </div>
+            <svg style="width:20px;height:20px;fill:rgba(249,246,242,0.25);" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+
+          <a href="mailto:info@overtimejunkers.com" class="cta-card">
+            <div class="cta-icon">✉️</div>
+            <div class="cta-card-text">
+              <div class="cta-card-label">Email Us</div>
+              <div class="cta-card-value" style="font-size:1.1rem;">info@overtimejunkers.com</div>
+              <div class="cta-card-sub">We respond within 24 hours</div>
+            </div>
+            <svg style="width:20px;height:20px;fill:rgba(249,246,242,0.25);" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form fade-up stagger-2">
+        <div class="form-title">Request a Free Quote</div>
+        <form id="quote-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="quote" />
+          <p style="display:none"><input name="bot-field" /></p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="first-name" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="last-name" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="(713) 000-0000" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Junk Removal</option>
+              <option>Garage Cleanout</option>
+              <option>Demolition</option>
+              <option>Hauling</option>
+              <option>Dumpster Rental</option>
+              <option>Siding</option>
+              <option>Remodeling</option>
+              <option>Flooring</option>
+              <option>Other / Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Job Details</label>
+            <textarea name="job-details" placeholder="Tell us about your project — location, size, urgency…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Request →</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="brand_assets/logo.png" alt="Overtime Junkers LLC" />
+      </div>
+      <p class="footer-tagline">
+        Overtime Junkers LLC — Houston's hardest-working junk removal and demolition team. We put in the overtime so you don't have to.
+      </p>
+      <div class="footer-contact">
+        <a href="tel:7139062389">📞 713-906-2389</a>
+        <a href="sms:7139062389">💬 Text 713-906-2389</a>
+        <a href="mailto:info@overtimejunkers.com">✉️ info@overtimejunkers.com</a>
+        <a>📍 Houston, TX &amp; Surrounding Areas</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Junk Removal</a></li>
+        <li><a href="#services">Garage Cleanouts</a></li>
+        <li><a href="#services">Demolition</a></li>
+        <li><a href="#services">Hauling</a></li>
+        <li><a href="#services">Dumpster Rental</a></li>
+        <li><a href="#services">Siding</a></li>
+        <li><a href="#services">Remodeling</a></li>
+        <li><a href="#services">Flooring</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+        <li><a href="tel:7139062389">Call Us Now</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Overtime Junkers LLC. All rights reserved.</div>
+    <div class="footer-lic">Houston, TX · Licensed & Insured</div>
+  </div>
+</footer>
+
+<!-- ═══════════ FLOATING CTA ═══════════ -->
+<div class="floating-cta">
+  <a href="tel:7139062389" class="float-call">
+    <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    Call
+  </a>
+  <a href="sms:7139062389" class="float-text">
+    <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    Text
+  </a>
+</div>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Close mobile menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+
+  // Scroll animations
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Fallback: reveal all after 2.5s (catches elements not triggered by observer)
+  setTimeout(() => {
+    fadeEls.forEach(el => el.classList.add('visible'));
+  }, 2500);
+
+  // Counter animation
+  function animateCounter(el, target, duration = 1800) {
+    const start = performance.now();
+    const update = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target);
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(update);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        animateCounter(el, target);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+  // Form submit handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const original = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+      .then(() => {
+        btn.textContent = '✓ Request Sent!';
+        btn.style.background = '#1a8a1a';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+      })
+      .catch(() => {
+        btn.textContent = 'Error — Try Again';
+        btn.style.background = '#c0392b';
+        btn.disabled = false;
+      });
+  }
+
+  // Nav background on scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav.style.background = 'rgba(10,10,10,0.98)';
+    } else {
+      nav.style.background = 'rgba(10,10,10,0.95)';
+    }
+  }, { passive: true });
+</script>
+
+<!-- Hidden Netlify form for chatbot leads -->
+<form name="chatbot-lead" data-netlify="true" style="display:none">
+  <input type="hidden" name="form-name" value="chatbot-lead" />
+  <input name="name" />
+  <input name="phone" />
+  <input name="service" />
+  <input name="source" />
+</form>
+
+<script src="chatbot.js"></script>
+</body>
+</html>
