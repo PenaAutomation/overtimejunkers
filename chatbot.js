@@ -271,29 +271,32 @@
   // ── STATE ───────────────────────────────────────────────────────────────
   let isOpen = false;
   let conversationHistory = [];
-  let leadData = { name: null, phone: null, service: null };
+  let leadData = { name: null, phone: null, service: null, location: null, photos: 'no' };
   let leadSent = false;
 
   const SYSTEM_PROMPT = `You are a friendly, helpful chat assistant for ${BUSINESS_NAME}, a junk removal and demolition company in Houston, TX. Your job is to help potential customers get a free quote.
 
 Services offered: Junk Removal, Garage Cleanout, Demolition, Hauling, Dumpster Rental, Siding, Remodeling, Flooring.
 
-Your goal is to naturally collect:
-1. Their first name
-2. Their phone number
-3. What service they need
+Your goal is to naturally collect in this order:
+1. What service they need
+2. Their location (city or neighborhood in the Houston area)
+3. Ask if they have photos of the job - say it helps give a more accurate quote. If they say no or cannot send, say no problem and move on.
+4. Their first name
+5. Their phone number
 
 Rules:
 - Be conversational and friendly, not robotic
 - Keep responses SHORT (1-3 sentences max)
-- Once you have their name, phone, and service — confirm their info and tell them the team will call them shortly to schedule
-- If they ask about pricing, say pricing depends on the job size and the team will give them an exact quote when they call
+- Once you have name, phone, service, and location, confirm their info and tell them the team will reach out shortly
+- If they ask about pricing, say pricing depends on the job size and the team will give an exact quote when they call
 - Phone number: ${PHONE}
 - Do NOT make up prices or guarantees
+- For photos: if they say yes, tell them to text the photos directly to ${PHONE} since the chat does not support image uploads
 - If they seem ready to book, push them to call/text ${PHONE} directly for fastest service
 
-When you have collected name, phone number, and service from the user, include this exact JSON at the END of your response on its own line (and only when all 3 are collected):
-LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]"}`;
+When you have collected name, phone, service, AND location, include this exact JSON at the END of your response on its own line:
+LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location":"[location]","photos":"[yes or no]"}\`;
 
   // ── FUNCTIONS ────────────────────────────────────────────────────────────
   function messagesEl() { return document.getElementById('oj-messages'); }
@@ -394,8 +397,26 @@ LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]"}`;
         'name': lead.name || '',
         'phone': lead.phone || '',
         'service': lead.service || '',
+        'location': lead.location || '',
+        'photos': lead.photos || 'no',
         'source': 'chatbot'
       }).toString()
+    }).catch(() => {});
+
+    // Send SMS to owner via Twilio
+    fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'notify',
+        lead: {
+          name: lead.name || '',
+          phone: lead.phone || '',
+          service: lead.service || '',
+          location: lead.location || 'Not provided',
+          photos: lead.photos === 'yes' ? ['Customer will text photos to ' + PHONE] : []
+        }
+      })
     }).catch(() => {});
   }
 
