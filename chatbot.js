@@ -31,14 +31,14 @@
     #oj-chat-btn svg { width: 28px; height: 28px; fill: #F9F6F2; }
 
     @media (max-width: 480px) {
-      #oj-chat-btn { bottom: 16px; right: 16px; width: 52px; height: 52px; }
-      #oj-chat-bubble { bottom: 80px; right: 16px; font-size: 12px; }
+      #oj-chat-btn { bottom: 90px; right: 16px; width: 52px; height: 52px; }
+      #oj-chat-bubble { bottom: 155px; right: 16px; font-size: 12px; }
       #oj-chat-window { bottom: 0 !important; right: 0 !important; left: 0 !important; width: 100% !important; max-width: 100% !important; height: 75vh !important; max-height: 75vh !important; border-radius: 20px 20px 0 0 !important; border-left: none !important; border-right: none !important; border-bottom: none !important; }
     }
 
     @media (max-width: 480px) {
-      #oj-chat-btn { bottom: 16px; right: 16px; width: 52px; height: 52px; }
-      #oj-chat-bubble { bottom: 80px; right: 16px; font-size: 12px; }
+      #oj-chat-btn { bottom: 90px; right: 16px; width: 52px; height: 52px; }
+      #oj-chat-bubble { bottom: 155px; right: 16px; font-size: 12px; }
       #oj-chat-window { bottom: 0 !important; right: 0 !important; left: 0 !important; width: 100% !important; max-width: 100% !important; height: 75vh !important; max-height: 75vh !important; border-radius: 20px 20px 0 0 !important; border-left: none !important; border-right: none !important; border-bottom: none !important; }
     }
 
@@ -257,7 +257,7 @@
   win.style.display = 'none';
   win.innerHTML = `
     <div id="oj-chat-header">
-      <div class="oj-avatar">🚛</div>
+      <div class="oj-avatar"><img src="brand_assets/logo.png" style="width:32px;height:32px;object-fit:contain;border-radius:50%;" /></div>
       <div>
         <div class="oj-title">Overtime Junkers</div>
         <div class="oj-subtitle">Typically replies in minutes</div>
