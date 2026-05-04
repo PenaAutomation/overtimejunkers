@@ -436,6 +436,7 @@ LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location
   function openChat() {
     isOpen = true;
     win.style.display = 'flex';
+    btn.style.display = 'none';
     if (bubble.parentNode) bubble.remove();
     if (conversationHistory.length === 0) {
       setTimeout(() => {
@@ -455,6 +456,7 @@ LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location
   function closeChat() {
     isOpen = false;
     win.style.display = 'none';
+    btn.style.display = 'flex';
   }
 
   // ── EVENTS ───────────────────────────────────────────────────────────────
