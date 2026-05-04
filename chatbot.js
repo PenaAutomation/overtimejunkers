@@ -36,6 +36,12 @@
       #oj-chat-window { bottom: 0 !important; right: 0 !important; left: 0 !important; width: 100% !important; max-width: 100% !important; height: 75vh !important; max-height: 75vh !important; border-radius: 20px 20px 0 0 !important; border-left: none !important; border-right: none !important; border-bottom: none !important; }
     }
 
+    @media (max-width: 480px) {
+      #oj-chat-btn { bottom: 16px; right: 16px; width: 52px; height: 52px; }
+      #oj-chat-bubble { bottom: 80px; right: 16px; font-size: 12px; }
+      #oj-chat-window { bottom: 0 !important; right: 0 !important; left: 0 !important; width: 100% !important; max-width: 100% !important; height: 75vh !important; max-height: 75vh !important; border-radius: 20px 20px 0 0 !important; border-left: none !important; border-right: none !important; border-bottom: none !important; }
+    }
+
     #oj-chat-bubble {
       position: fixed;
       bottom: 96px;
@@ -296,7 +302,7 @@ Rules:
 - If they seem ready to book, push them to call/text ${PHONE} directly for fastest service
 
 When you have collected name, phone, service, AND location, include this exact JSON at the END of your response on its own line:
-LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location":"[location]","photos":"[yes or no]"}\`;
+LEAD_CAPTURED:{"name":"[name]","phone":"[phone]","service":"[service]","location":"[location]","photos":"[yes or no]"}`;
 
   // ── FUNCTIONS ────────────────────────────────────────────────────────────
   function messagesEl() { return document.getElementById('oj-messages'); }
