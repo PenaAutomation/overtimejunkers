@@ -64,12 +64,25 @@
     .nav-logo {
       display: flex;
       align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
 
     .nav-logo img {
       height: 60px;
       width: auto;
       display: block;
+    }
+
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -1022,6 +1035,7 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <img src="brand_assets/logo.png" alt="Overtime Junkers LLC" />
+      <span class="nav-logo-text">Overtime Junkers</span>
     </a>
 
     <ul class="nav-links">
@@ -1594,6 +1608,8 @@
   <input name="name" />
   <input name="phone" />
   <input name="service" />
+  <input name="location" />
+  <input name="photos" />
   <input name="source" />
 </form>
 
